@@ -614,41 +614,39 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.9fr 0.9fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      align-items: stretch;
     }
 
     .gallery-item {
       position: relative;
-      min-height: 340px;
+      aspect-ratio: 4 / 5;
       border-radius: 28px;
       overflow: hidden;
       background: var(--surface);
       border: 1px solid rgba(201, 163, 91, 0.28);
       box-shadow: 0 18px 46px rgba(80, 35, 45, 0.08);
-    }
-
-    .gallery-item.featured {
-      min-height: 430px;
+      cursor: zoom-in;
+      padding: 0;
+      text-align: left;
+      font: inherit;
+      color: inherit;
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.28s ease;
     }
 
-    .gallery-item:nth-child(1) img {
-      object-position: 52% 54%;
+    .gallery-item:hover img {
+      transform: scale(1.04);
     }
 
-    .gallery-item:nth-child(2) img {
-      object-position: 74% 66%;
-    }
-
-    .gallery-item:nth-child(3) img {
-      object-position: 35% 48%;
+    .gallery-item:focus-visible {
+      outline: 3px solid rgba(184, 91, 107, 0.35);
+      outline-offset: 4px;
     }
 
     .gallery-caption {
@@ -656,9 +654,9 @@
       left: 16px;
       right: 16px;
       bottom: 16px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
       border: 1px solid rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(10px);
     }
@@ -666,19 +664,61 @@
     .gallery-caption strong {
       display: block;
       line-height: 1.2;
-    }
-
-    .gallery-caption span {
-      display: block;
-      color: var(--muted);
       font-size: 0.88rem;
-      margin-top: 4px;
     }
 
     .gallery-actions {
       margin-top: 22px;
       display: flex;
       justify-content: center;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      background: rgba(44, 29, 31, 0.78);
+      backdrop-filter: blur(10px);
+    }
+
+    .lightbox.is-open {
+      display: grid;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      width: min(100%, 920px);
+      max-height: min(90vh, 960px);
+      display: grid;
+      place-items: center;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 88vh;
+      border-radius: 28px;
+      border: 1px solid rgba(201, 163, 91, 0.36);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
+      background: #fff;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(201, 163, 91, 0.36);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--accent-dark);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.18);
     }
 
     .packages {
@@ -945,7 +985,7 @@
       }
 
       .gallery-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .difference-feature {
@@ -958,11 +998,6 @@
 
       .credential-list {
         grid-template-columns: 1fr;
-      }
-
-      .gallery-item,
-      .gallery-item.featured {
-        min-height: 340px;
       }
 
       .packages {
@@ -1098,17 +1133,26 @@
       .mini-proof,
       .cards,
       .service-grid,
-      .gallery-grid,
       .packages,
       .check-list,
       .steps {
         grid-template-columns: 1fr;
       }
 
-      .gallery-item,
-      .gallery-item.featured {
-        min-height: 280px;
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .gallery-item {
         border-radius: 22px;
+      }
+
+      .gallery-caption {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        padding: 8px 10px;
       }
 
       .mini-proof {
@@ -1180,6 +1224,19 @@
 
       .floating-note .btn {
         width: 100%;
+      }
+
+      .lightbox {
+        padding: 14px;
+      }
+
+      .lightbox img {
+        border-radius: 20px;
+      }
+
+      .lightbox-close {
+        top: -8px;
+        right: -8px;
       }
 
       section {
@@ -1358,27 +1415,38 @@
         </div>
 
         <div class="gallery-grid">
-          <div class="gallery-item featured">
-            <img src="assets/hero-nails.png" alt="Soft pink floral nail art set with gold accents" />
-            <div class="gallery-caption">
-              <strong>Floral detail set</strong>
-              <span>Soft pink base, hand-painted flower accents, and gold details.</span>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/hero-nails.png" alt="Glossy pink manicure samples with white and gold details" />
-            <div class="gallery-caption">
-              <strong>Glossy gel finish</strong>
-              <span>Clean shine, smooth shaping, and feminine neutral tones.</span>
-            </div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/hero-nails.png" alt="Elegant pink manicure with floral nail art" />
-            <div class="gallery-caption">
-              <strong>Event-ready nails</strong>
-              <span>Polished designs for dinners, parties, brides, and photos.</span>
-            </div>
-          </div>
+          <button class="gallery-item" type="button" data-full="assets/gallery/nail1.png" aria-label="View nail result 1 larger">
+            <img src="assets/gallery/nail1.png" alt="Elegant nail result 1" />
+            <span class="gallery-caption"><strong>View larger</strong></span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery/nail2.png" aria-label="View nail result 2 larger">
+            <img src="assets/gallery/nail2.png" alt="Elegant nail result 2" />
+            <span class="gallery-caption"><strong>View larger</strong></span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery/nail3.png" aria-label="View nail result 3 larger">
+            <img src="assets/gallery/nail3.png" alt="Elegant nail result 3" />
+            <span class="gallery-caption"><strong>View larger</strong></span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery/nail4.png" aria-label="View nail result 4 larger">
+            <img src="assets/gallery/nail4.png" alt="Elegant nail result 4" />
+            <span class="gallery-caption"><strong>View larger</strong></span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery/nail5.png" aria-label="View nail result 5 larger">
+            <img src="assets/gallery/nail5.png" alt="Elegant nail result 5" />
+            <span class="gallery-caption"><strong>View larger</strong></span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery/nail6.png" aria-label="View nail result 6 larger">
+            <img src="assets/gallery/nail6.png" alt="Elegant nail result 6" />
+            <span class="gallery-caption"><strong>View larger</strong></span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery/nail7.png" aria-label="View nail result 7 larger">
+            <img src="assets/gallery/nail7.png" alt="Elegant nail result 7" />
+            <span class="gallery-caption"><strong>View larger</strong></span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery/nail8.png" aria-label="View nail result 8 larger">
+            <img src="assets/gallery/nail8.png" alt="Elegant nail result 8" />
+            <span class="gallery-caption"><strong>View larger</strong></span>
+          </button>
         </div>
 
         <div class="gallery-actions">
@@ -1386,6 +1454,13 @@
         </div>
       </div>
     </section>
+
+    <div class="lightbox" id="gallery-lightbox" aria-hidden="true">
+      <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Expanded gallery image">
+        <button class="lightbox-close" type="button" aria-label="Close expanded image">×</button>
+        <img src="" alt="" />
+      </div>
+    </div>
 
     <section id="packages">
       <div class="container">
@@ -1561,6 +1636,41 @@
         menuToggle.setAttribute('aria-expanded', 'false');
         menuToggle.setAttribute('aria-label', 'Open menu');
       });
+    });
+
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxImage = lightbox.querySelector('img');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.gallery-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        const image = item.querySelector('img');
+        lightboxImage.src = item.dataset.full;
+        lightboxImage.alt = image.alt;
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        lightboxClose.focus();
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+      lightboxImage.alt = '';
+    };
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+      }
     });
   </script>
 </body>

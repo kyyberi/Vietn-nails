@@ -1052,15 +1052,23 @@
       }
 
       .luxury-line {
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
         margin-bottom: 14px;
       }
 
+      .luxury-line::before {
+        width: 34px;
+        margin-top: 0.42em;
+        flex: 0 0 auto;
+      }
+
       h1 {
-        font-size: clamp(2.55rem, 13vw, 3.35rem);
-        line-height: 1.06;
-        margin-bottom: 18px;
+        font-size: clamp(2.45rem, 11.2vw, 3.15rem);
+        line-height: 1;
+        margin-bottom: 12px;
       }
 
       .section-head.wide h2 {
@@ -1069,12 +1077,14 @@
 
       .hero-copy {
         font-size: 1.02rem;
-        margin-bottom: 22px;
+        line-height: 1.52;
+        margin-bottom: 24px;
       }
 
       .hero-subheadline {
-        font-size: 1.32rem;
-        margin: -6px 0 16px;
+        font-size: 1.24rem;
+        line-height: 1.18;
+        margin: 0 0 16px;
       }
 
       .hero-actions {
@@ -1102,11 +1112,19 @@
       }
 
       .mini-proof {
-        gap: 10px;
+        gap: 12px;
       }
 
       .proof-card {
         padding: 0 0 0 12px;
+      }
+
+      .proof-card strong {
+        font-size: 0.95rem;
+      }
+
+      .proof-card span {
+        font-size: 0.84rem;
       }
 
       .hero-card {

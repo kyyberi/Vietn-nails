@@ -110,6 +110,51 @@
       align-items: center;
     }
 
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--accent-dark);
+      cursor: pointer;
+      place-items: center;
+      padding: 0;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle::before {
+      transform: translateY(-6px);
+    }
+
+    .menu-toggle::after {
+      transform: translateY(6px);
+    }
+
+    .menu-toggle.is-open span {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open::before {
+      transform: translateY(2px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open::after {
+      transform: translateY(-2px) rotate(-45deg);
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -947,11 +992,40 @@
       }
 
       .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 12px;
+        right: 12px;
         display: none;
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
       }
 
       .nav-actions .btn-secondary {
         display: none;
+      }
+
+      .nav-links.is-open {
+        display: grid;
+      }
+
+      .nav-links a {
+        padding: 13px 12px;
+        border-radius: 14px;
+        font-weight: 750;
+      }
+
+      .nav-links a:hover {
+        background: var(--soft);
+      }
+
+      .menu-toggle {
+        display: grid;
       }
 
       .hero {
@@ -1102,7 +1176,7 @@
           <span>Saigon Lotus Nails</span>
         </a>
 
-        <nav class="nav-links" aria-label="Main navigation">
+        <nav class="nav-links" id="main-menu" aria-label="Main navigation">
           <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#gallery">Gallery</a>
@@ -1114,6 +1188,7 @@
         <div class="nav-actions">
           <a class="btn btn-secondary" href="https://wa.me/971508357337" target="_blank" rel="noopener">WhatsApp</a>
           <a class="btn btn-primary" href="https://calendly.com/your-calendly-link" target="_blank" rel="noopener">Book now</a>
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-menu"><span></span></button>
         </div>
       </div>
     </header>
@@ -1443,6 +1518,25 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainMenu = document.getElementById('main-menu');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mainMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+
+    mainMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mainMenu.classList.remove('is-open');
+        menuToggle.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open menu');
+      });
+    });
   </script>
 </body>
 </html>

@@ -146,17 +146,19 @@
 
     .hero {
       position: relative;
-      padding: 82px 0 70px;
+      padding: 86px 0 76px;
+      background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.78), rgba(255, 248, 246, 0.18) 46%, rgba(244, 223, 220, 0.42)),
+        var(--bg);
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      inset: -140px -20% auto auto;
-      width: 560px;
-      height: 560px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(184, 91, 107, 0.22), rgba(184, 91, 107, 0));
+      inset: 34px auto auto 50%;
+      width: 1px;
+      height: calc(100% - 68px);
+      background: linear-gradient(180deg, transparent, rgba(201, 163, 91, 0.48), transparent);
       pointer-events: none;
     }
 
@@ -173,16 +175,17 @@
       gap: 8px;
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.74);
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(201, 163, 91, 0.34);
       color: var(--accent-dark);
       font-weight: 750;
       font-size: 0.9rem;
       margin-bottom: 22px;
+      box-shadow: 0 12px 30px rgba(80, 35, 45, 0.08);
     }
 
     h1 {
-      font-size: clamp(3rem, 7vw, 5.9rem);
+      font-size: clamp(3rem, 6.4vw, 5.55rem);
       line-height: 1.02;
       letter-spacing: 0;
       max-width: 900px;
@@ -192,8 +195,27 @@
     .hero-copy {
       font-size: clamp(1.05rem, 2vw, 1.28rem);
       color: var(--muted);
-      max-width: 650px;
+      max-width: 620px;
       margin-bottom: 30px;
+    }
+
+    .luxury-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .luxury-line::before {
+      content: "";
+      width: 46px;
+      height: 1px;
+      background: var(--gold);
     }
 
     .hero-actions {
@@ -211,10 +233,9 @@
     }
 
     .proof-card {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 14px;
+      background: transparent;
+      border-left: 1px solid rgba(201, 163, 91, 0.48);
+      padding: 4px 0 4px 14px;
     }
 
     .proof-card strong {
@@ -233,11 +254,11 @@
 
     .hero-card {
       position: relative;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: linear-gradient(145deg, var(--ink), #5f2634);
+      border: 1px solid rgba(201, 163, 91, 0.28);
       border-radius: 42px;
       padding: 22px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 28px 80px rgba(44, 29, 31, 0.22);
     }
 
     .nail-visual {
@@ -256,8 +277,8 @@
 
     .floating-note {
       margin-top: 16px;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(201, 163, 91, 0.32);
       border-radius: 24px;
       padding: 18px;
       display: flex;
@@ -305,6 +326,14 @@
     .section-head p {
       color: var(--muted);
       font-size: 1.08rem;
+    }
+
+    .section-head p a {
+      color: var(--accent-dark);
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-color: rgba(184, 91, 107, 0.35);
+      text-underline-offset: 4px;
     }
 
     .cards {
@@ -387,7 +416,7 @@
       padding: 22px;
       min-height: 384px;
       display: grid;
-      grid-template-rows: minmax(120px, auto) auto auto 1fr 42px;
+      grid-template-rows: minmax(128px, auto) auto 1fr 42px;
     }
 
     .package.featured {
@@ -409,52 +438,51 @@
     }
 
     .package-price {
-      margin-top: 22px;
+      margin-top: 18px;
     }
 
     .package-price strong {
       display: block;
-      font-size: clamp(1.9rem, 3vw, 2.45rem);
+      font-size: clamp(1.8rem, 2.8vw, 2.35rem);
       line-height: 1;
       letter-spacing: -0.055em;
     }
 
+    .old-price {
+      display: block;
+      width: fit-content;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      margin-bottom: 8px;
+    }
+
+    .package.featured .old-price {
+      color: rgba(255, 255, 255, 0.58);
+    }
+
     .package-price span {
       display: block;
-      color: var(--muted);
+      color: var(--accent-dark);
       font-size: 0.86rem;
       font-weight: 750;
       margin-top: 7px;
     }
 
     .package.featured .package-price span {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .package small {
-      display: inline-flex;
-      width: fit-content;
-      margin-top: 18px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--accent-dark);
-      font-weight: 800;
+      color: rgba(255, 255, 255, 0.72);
     }
 
     .package-cta {
-      grid-row: 5;
+      grid-row: 4;
       align-self: stretch;
       width: auto;
       height: 42px;
       min-height: 42px;
       padding: 0;
       margin-top: 0;
-    }
-
-    .package.featured small {
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
     }
 
     .trust-wrap {
@@ -724,8 +752,9 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">Ladies-only home nail service in Abu Dhabi</div>
+          <div class="luxury-line">Private luxury nail care</div>
           <h1>Saigon Lotus Nails, delivered at home</h1>
-          <p class="hero-copy">Private manicure, pedicure, gel nails, extensions, and nail art at your home in Abu Dhabi. Clean setup. Detailed finish. No salon waiting time.</p>
+          <p class="hero-copy">Elegant gel nails, detailed nail art, and polished home appointments with a calm setup, careful finish, and salon-quality attention.</p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://calendly.com/your-calendly-link" target="_blank" rel="noopener">Book your home visit</a>
@@ -734,16 +763,16 @@
 
           <div class="mini-proof" aria-label="Service highlights">
             <div class="proof-card">
-              <strong>Nail specialist</strong>
-              <span>Focused on nails, gel, extensions, and detail work.</span>
+              <strong>Premium finish</strong>
+              <span>Glossy gel, refined shaping, and detailed art.</span>
             </div>
             <div class="proof-card">
-              <strong>Private at home</strong>
-              <span>Comfortable appointments for busy women and families.</span>
+              <strong>Quiet privacy</strong>
+              <span>One-to-one appointments in your own space.</span>
             </div>
             <div class="proof-card">
-              <strong>Clean setup</strong>
-              <span>Fresh tools, tidy station, and careful product use.</span>
+              <strong>Prepared kit</strong>
+              <span>Organized tools and a tidy home station.</span>
             </div>
           </div>
         </div>
@@ -816,53 +845,48 @@
         <div class="section-head">
           <div class="section-label">Packages</div>
           <h2>House-call packages</h2>
-          <p>Clear all-inclusive prices for home visits in Abu Dhabi. No added travel fees, setup fees, or surprise costs.</p>
+          <p>10% launch offer on all packages. <a href="#service-areas">Travel included within selected Abu Dhabi areas.</a></p>
         </div>
 
         <div class="packages">
           <div class="package">
             <div class="package-copy">
-              <h3>Quick Polish Visit</h3>
-              <p>A simple refresh for hands or feet at home.</p>
+              <h3>Express Nail Refresh</h3>
+              <p>Cut, file, polish, and light tidy.</p>
             </div>
-            <div class="package-price"><strong>AED 120</strong><span>All costs included</span></div>
-            <small>Simple refresh</small>
+            <div class="package-price"><span class="old-price">AED 120</span><strong>AED 108</strong><span>10% launch offer</span></div>
             <a class="btn btn-primary package-cta" href="https://calendly.com/your-calendly-link" target="_blank" rel="noopener">Book now</a>
           </div>
           <div class="package featured">
             <div class="package-copy">
-              <h3>Signature Gel Set</h3>
-              <p>Gel manicure with cuticle care and clean finish.</p>
+              <h3>Signature Gel Manicure</h3>
+              <p>Gel manicure, cuticle care, clean finish.</p>
             </div>
-            <div class="package-price"><strong>AED 180</strong><span>All costs included</span></div>
-            <small>Main choice</small>
+            <div class="package-price"><span class="old-price">AED 180</span><strong>AED 162</strong><span>10% launch offer</span></div>
             <a class="btn btn-primary package-cta" href="https://calendly.com/your-calendly-link" target="_blank" rel="noopener">Book now</a>
           </div>
           <div class="package">
             <div class="package-copy">
-              <h3>Hands and Feet Reset</h3>
-              <p>Gel manicure plus pedicure for a full home nail visit.</p>
+              <h3>Hands and Feet Gel Reset</h3>
+              <p>Gel manicure plus pedicure.</p>
             </div>
-            <div class="package-price"><strong>AED 280</strong><span>All costs included</span></div>
-            <small>Higher value</small>
+            <div class="package-price"><span class="old-price">AED 280</span><strong>AED 252</strong><span>10% launch offer</span></div>
             <a class="btn btn-primary package-cta" href="https://calendly.com/your-calendly-link" target="_blank" rel="noopener">Book now</a>
           </div>
           <div class="package">
             <div class="package-copy">
-              <h3>Saigon Lotus Nail Art Session</h3>
-              <p>French, chrome, floral, gems, fine lines, or custom art.</p>
+              <h3>Signature Nail Art Set</h3>
+              <p>Gel manicure with detailed nail art.</p>
             </div>
-            <div class="package-price"><strong>AED 320</strong><span>All costs included</span></div>
-            <small>Signature style</small>
+            <div class="package-price"><span class="old-price">AED 320</span><strong>AED 288</strong><span>10% launch offer</span></div>
             <a class="btn btn-primary package-cta" href="https://calendly.com/your-calendly-link" target="_blank" rel="noopener">Book now</a>
           </div>
           <div class="package">
             <div class="package-copy">
-              <h3>Ladies’ Home Nail Party</h3>
-              <p>For 2 to 5 women. Good for villas, birthdays, and pre-wedding days.</p>
+              <h3>Ladies’ Nail Party</h3>
+              <p>For 3 guests. Add guests from AED 162 during the launch offer.</p>
             </div>
-            <div class="package-price"><strong>AED 650</strong><span>All costs included</span></div>
-            <small>Group booking</small>
+            <div class="package-price"><span class="old-price">From AED 650</span><strong>From AED 585</strong><span>10% launch offer</span></div>
             <a class="btn btn-primary package-cta" href="https://calendly.com/your-calendly-link" target="_blank" rel="noopener">Book now</a>
           </div>
         </div>
@@ -926,12 +950,12 @@
       </div>
     </section>
 
-    <section>
+    <section id="service-areas">
       <div class="container">
         <div class="section-head">
           <div class="section-label">Service areas</div>
           <h2>Serving Abu Dhabi homes</h2>
-          <p>Start with focused areas. Expand once the booking flow, travel time, and repeat clients are clear.</p>
+          <p>Home visits are available in selected Abu Dhabi areas. If your area is not listed, ask on WhatsApp and we will confirm availability.</p>
         </div>
         <div class="areas">
           <span class="area-pill">Reem Island</span>

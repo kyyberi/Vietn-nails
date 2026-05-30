@@ -394,8 +394,9 @@
 
     .difference-note strong {
       display: block;
-      font-size: 1.18rem;
+      font-size: clamp(1rem, 1.7vw, 1.18rem);
       margin-bottom: 8px;
+      white-space: nowrap;
     }
 
     .difference-note p {
@@ -976,6 +977,10 @@
       .about-specialist {
         padding: 18px;
         border-radius: 28px;
+      }
+
+      .difference-note strong {
+        white-space: normal;
       }
 
       .specialist-photo,

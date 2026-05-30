@@ -689,6 +689,293 @@
       justify-content: center;
     }
 
+    .agent-panel {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: stretch;
+      padding: 42px;
+      border-radius: 38px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 88% 14%, rgba(201, 163, 91, 0.26), transparent 34%),
+        linear-gradient(135deg, #2c1d1f, #7d3444);
+      border: 1px solid rgba(201, 163, 91, 0.32);
+      box-shadow: 0 28px 80px rgba(44, 29, 31, 0.2);
+    }
+
+    .agent-copy h2 {
+      max-width: 660px;
+    }
+
+    .agent-copy p {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.08rem;
+      max-width: 680px;
+      margin-top: 14px;
+    }
+
+    .agent-note {
+      margin-top: 28px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .agent-note strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .agent-note span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+
+    .agent-copy .section-label {
+      color: #f3c8cf;
+    }
+
+    .agent-chat {
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 30px;
+      padding: 18px;
+      box-shadow: 0 24px 70px rgba(44, 29, 31, 0.22);
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .agent-chat-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .agent-chat-head strong {
+      display: block;
+      line-height: 1.2;
+    }
+
+    .agent-chat-head span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.35;
+      margin-top: 3px;
+    }
+
+    .agent-reset {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--accent-dark);
+      font-weight: 800;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .agent-thread {
+      display: grid;
+      gap: 12px;
+      padding: 18px 0;
+      min-height: 210px;
+    }
+
+    .agent-message {
+      max-width: 88%;
+      border-radius: 20px;
+      padding: 12px 14px;
+      font-size: 0.96rem;
+      line-height: 1.45;
+    }
+
+    .agent-message.bot {
+      justify-self: start;
+      background: #f7ebe8;
+      color: var(--ink);
+      border-bottom-left-radius: 6px;
+    }
+
+    .agent-message.user {
+      justify-self: end;
+      background: var(--accent);
+      color: #fff;
+      border-bottom-right-radius: 6px;
+    }
+
+    .agent-options {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .agent-option {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      padding: 9px 12px;
+      font: inherit;
+      font-weight: 800;
+      font-size: 0.86rem;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .agent-option:hover,
+    .agent-option:focus-visible {
+      color: var(--accent-dark);
+      border-color: rgba(184, 91, 107, 0.48);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .agent-composer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .agent-input {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0 16px;
+      font: inherit;
+      outline: none;
+    }
+
+    .agent-input:focus {
+      border-color: rgba(184, 91, 107, 0.56);
+      box-shadow: 0 0 0 4px rgba(184, 91, 107, 0.12);
+    }
+
+    .agent-send {
+      min-width: 92px;
+      border: 0;
+    }
+
+    .agent-typing {
+      justify-self: start;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 0 4px;
+    }
+
+    .agent-results {
+      display: none;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .agent-results.is-visible {
+      display: grid;
+    }
+
+    .agent-result-card {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 10px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 28px rgba(80, 35, 45, 0.07);
+    }
+
+    .agent-result-card img {
+      width: 92px;
+      height: 108px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .agent-result-card strong {
+      display: block;
+      font-size: 0.98rem;
+      line-height: 1.25;
+    }
+
+    .agent-result-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.35;
+      margin-top: 4px;
+    }
+
+    .agent-result-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .agent-result-tags span {
+      background: var(--soft);
+      color: var(--accent-dark);
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .agent-pick {
+      border: 1px solid rgba(184, 91, 107, 0.28);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--accent-dark);
+      padding: 7px 10px;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 850;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .agent-pick:hover,
+    .agent-pick:focus-visible {
+      border-color: rgba(184, 91, 107, 0.58);
+      outline: none;
+    }
+
+    .agent-brief {
+      display: none;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .agent-brief.is-visible {
+      display: block;
+    }
+
+    .agent-brief p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .agent-brief .btn {
+      width: 100%;
+    }
+
     .lightbox {
       position: fixed;
       inset: 0;
@@ -976,16 +1263,70 @@
     }
 
     .footer {
-      padding: 34px 0 50px;
+      padding: 46px 0 38px;
       color: var(--muted);
       border-top: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.42);
     }
 
     .footer-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.9fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .footer h3,
+    .footer h4 {
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .footer h3 {
+      font-size: 1.35rem;
+      letter-spacing: -0.025em;
+    }
+
+    .footer h4 {
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer p {
+      max-width: 420px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 9px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-dark);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .footer-bottom {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 0.92rem;
     }
 
     @media (max-width: 1020px) {
@@ -1005,6 +1346,10 @@
       }
 
       .difference-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .agent-panel {
         grid-template-columns: 1fr;
       }
 
@@ -1255,6 +1600,37 @@
         right: -8px;
       }
 
+      .agent-panel {
+        padding: 26px;
+        border-radius: 30px;
+      }
+
+      .agent-chat {
+        min-height: auto;
+        border-radius: 24px;
+      }
+
+      .agent-options {
+        gap: 7px;
+      }
+
+      .agent-composer {
+        grid-template-columns: 1fr;
+      }
+
+      .agent-send {
+        width: 100%;
+      }
+
+      .agent-result-card {
+        grid-template-columns: 78px 1fr;
+      }
+
+      .agent-result-card img {
+        width: 78px;
+        height: 96px;
+      }
+
       section {
         padding: 54px 0;
       }
@@ -1262,6 +1638,14 @@
       .cta-box {
         padding: 30px;
         border-radius: 32px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        display: grid;
       }
     }
   </style>
@@ -1278,6 +1662,7 @@
           <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#gallery">Gallery</a>
+          <a href="#nail-agent">Nail Agent</a>
           <a href="#packages">Packages</a>
           <a href="#hygiene">Hygiene</a>
           <a href="#booking">Booking</a>
@@ -1478,6 +1863,46 @@
       </div>
     </div>
 
+    <section id="nail-agent">
+      <div class="container">
+        <div class="agent-panel">
+          <div class="agent-copy">
+            <div class="section-label">Nail Agent</div>
+            <h2>Chat with the Nail Agent</h2>
+            <p>Answer a few quick questions and the Nail Agent will suggest curated nail looks from our gallery before your home appointment.</p>
+            <p>It helps narrow the choice by occasion, style, length, shape, and color mood, then turns your selected direction into a simple WhatsApp brief.</p>
+
+            <div class="agent-note">
+              <strong>No random scrolling</strong>
+              <span>Start with what you need: wedding, office, dinner, daily wear, soft luxury, bold evening, or something quietly polished.</span>
+            </div>
+          </div>
+
+          <div class="agent-chat" aria-label="Interactive Nail Agent">
+            <div class="agent-chat-head">
+              <div>
+                <strong>Lotus Nail Agent</strong>
+                <span id="agent-progress">Tell the agent what you want</span>
+              </div>
+              <button class="agent-reset" type="button">Reset</button>
+            </div>
+
+            <div class="agent-thread" id="agent-thread" aria-live="polite"></div>
+            <div class="agent-options" id="agent-options"></div>
+            <form class="agent-composer" id="agent-form">
+              <input class="agent-input" id="agent-input" type="text" autocomplete="off" placeholder="Type freely, e.g. soft luxury nails for a wedding with gold" />
+              <button class="btn btn-primary agent-send" type="submit">Send</button>
+            </form>
+            <div class="agent-results" id="agent-results" aria-live="polite"></div>
+            <div class="agent-brief" id="agent-brief">
+              <p>Like one of these directions? Send the brief on WhatsApp and we will confirm the best service package for your home visit.</p>
+              <a class="btn btn-primary" id="agent-whatsapp" href="https://wa.me/971508357337" target="_blank" rel="noopener">Send brief on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="packages">
       <div class="container">
         <div class="section-head">
@@ -1625,9 +2050,42 @@
     </section>
 
     <footer class="footer">
-      <div class="container footer-inner">
-        <p>© <span id="year"></span> Saigon Lotus Nails. Private home nail care for women in Abu Dhabi.</p>
-        <p>Calendly booking · WhatsApp questions · Ladies-only service</p>
+      <div class="container">
+        <div class="footer-inner">
+          <div>
+            <h3>Saigon Lotus Nails</h3>
+            <p>Luxury ladies-only home nail care in Abu Dhabi by a certified specialist trained by experts in Vietnam.</p>
+            <div class="footer-social">
+              <a class="btn btn-secondary" href="https://www.instagram.com/saigonlotusnails" target="_blank" rel="noopener">Instagram</a>
+              <a class="btn btn-secondary" href="https://wa.me/971508357337" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+
+          <div>
+            <h4>Explore</h4>
+            <div class="footer-links">
+              <a href="#about">Your specialist</a>
+              <a href="#services">Services</a>
+              <a href="#gallery">Gallery</a>
+              <a href="#nail-agent">Nail Agent</a>
+              <a href="#packages">Packages</a>
+              <a href="#service-areas">Service areas</a>
+            </div>
+          </div>
+
+          <div>
+            <h4>Book</h4>
+            <p>Choose a package and time in Calendly. We confirm privately on WhatsApp.</p>
+            <div class="footer-social">
+              <a class="btn btn-primary" href="https://calendly.com/your-calendly-link" target="_blank" rel="noopener">Book on Calendly</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© <span id="year"></span> Saigon Lotus Nails. Private home nail care for women in Abu Dhabi.</p>
+          <p>Calendly booking · WhatsApp questions · Ladies-only service</p>
+        </div>
       </div>
     </footer>
   </main>
@@ -1653,6 +2111,277 @@
         menuToggle.setAttribute('aria-label', 'Open menu');
       });
     });
+
+    const nailLooks = [
+      {
+        title: 'Soft Lotus French',
+        image: 'assets/gallery/nail1.png',
+        tags: ['pink', 'soft', 'french', 'floral', 'bridal', 'medium', 'almond', 'luxury'],
+        reason: 'Soft pink, floral detail, and a polished French feel for bridal or elegant daily wear.'
+      },
+      {
+        title: 'Clean Office Blush',
+        image: 'assets/gallery/nail2.png',
+        tags: ['pink', 'minimal', 'office', 'daily', 'short', 'oval', 'soft'],
+        reason: 'A clean, flattering look for work, meetings, and low-maintenance daily elegance.'
+      },
+      {
+        title: 'Gold Detail Nude',
+        image: 'assets/gallery/nail3.png',
+        tags: ['nude', 'gold', 'luxury', 'event', 'medium', 'almond', 'nail art'],
+        reason: 'Nude polish with gold detail for a refined evening or event look.'
+      },
+      {
+        title: 'Bridal Floral Pink',
+        image: 'assets/gallery/nail4.png',
+        tags: ['bridal', 'floral', 'pink', 'soft', 'medium', 'luxury', 'nail art'],
+        reason: 'Romantic floral detail with soft color for weddings, photos, and special occasions.'
+      },
+      {
+        title: 'Minimal French Glow',
+        image: 'assets/gallery/nail5.png',
+        tags: ['french', 'white', 'minimal', 'office', 'clean', 'medium', 'square'],
+        reason: 'A clean French direction that feels polished without becoming too loud.'
+      },
+      {
+        title: 'Evening Gold Accent',
+        image: 'assets/gallery/nail6.png',
+        tags: ['gold', 'bold', 'event', 'luxury', 'long', 'nail art'],
+        reason: 'A stronger gold-accented choice for dinner, parties, and evening styling.'
+      },
+      {
+        title: 'Daily Soft Nude',
+        image: 'assets/gallery/nail7.png',
+        tags: ['nude', 'daily', 'minimal', 'short', 'oval', 'office', 'clean'],
+        reason: 'Easy to wear, soft on the hands, and practical for everyday routines.'
+      },
+      {
+        title: 'Lotus Art Set',
+        image: 'assets/gallery/nail8.png',
+        tags: ['floral', 'pink', 'bridal', 'luxury', 'medium', 'almond', 'nail art'],
+        reason: 'A signature floral direction when you want the nails to feel personal and memorable.'
+      }
+    ];
+
+    const agentThread = document.getElementById('agent-thread');
+    const agentOptions = document.getElementById('agent-options');
+    const agentForm = document.getElementById('agent-form');
+    const agentInput = document.getElementById('agent-input');
+    const agentResults = document.getElementById('agent-results');
+    const agentBrief = document.getElementById('agent-brief');
+    const agentWhatsapp = document.getElementById('agent-whatsapp');
+    const agentProgress = document.getElementById('agent-progress');
+    const agentReset = document.querySelector('.agent-reset');
+    let agentMessages = [];
+    let selectedTags = [];
+
+    const agentSuggestions = [
+      { label: 'Wedding, soft luxury, gold', text: 'I need nails for a wedding, soft luxury, not too long, with some gold.' },
+      { label: 'Office nude, easy maintenance', text: 'I want clean office nails, nude or pink, short and easy to maintain.' },
+      { label: 'Dinner look, more bold', text: 'I need a dinner look, elegant but a little bold with gold detail.' },
+      { label: 'French, clean and polished', text: 'I like French nails, clean, polished, and not too long.' }
+    ];
+
+    const tagDictionary = [
+      { tag: 'bridal', words: ['wedding', 'bridal', 'bride', 'engagement', 'henna'] },
+      { tag: 'office', words: ['office', 'work', 'meeting', 'professional', 'business'] },
+      { tag: 'event', words: ['event', 'party', 'dinner', 'evening', 'holiday'] },
+      { tag: 'daily', words: ['daily', 'everyday', 'casual', 'simple'] },
+      { tag: 'luxury', words: ['luxury', 'luxurious', 'elegant', 'premium', 'classy'] },
+      { tag: 'minimal', words: ['minimal', 'simple', 'clean', 'natural'] },
+      { tag: 'bold', words: ['bold', 'statement', 'dramatic', 'strong'] },
+      { tag: 'soft', words: ['soft', 'gentle', 'subtle', 'delicate'] },
+      { tag: 'floral', words: ['floral', 'flower', 'lotus'] },
+      { tag: 'nail art', words: ['art', 'design', 'detail', 'gem', 'chrome'] },
+      { tag: 'french', words: ['french'] },
+      { tag: 'gold', words: ['gold', 'golden'] },
+      { tag: 'pink', words: ['pink', 'blush'] },
+      { tag: 'nude', words: ['nude', 'beige', 'neutral'] },
+      { tag: 'white', words: ['white', 'milky'] },
+      { tag: 'short', words: ['short'] },
+      { tag: 'medium', words: ['medium'] },
+      { tag: 'long', words: ['long'] },
+      { tag: 'oval', words: ['oval'] },
+      { tag: 'almond', words: ['almond'] },
+      { tag: 'square', words: ['square'] }
+    ];
+
+    const addAgentMessage = (text, type = 'bot') => {
+      const message = document.createElement('div');
+      message.className = `agent-message ${type}`;
+      message.textContent = text;
+      agentThread.appendChild(message);
+      agentThread.scrollTop = agentThread.scrollHeight;
+    };
+
+    const renderSuggestions = () => {
+      agentOptions.innerHTML = '';
+      agentSuggestions.forEach((suggestion) => {
+        const button = document.createElement('button');
+        button.className = 'agent-option';
+        button.type = 'button';
+        button.textContent = suggestion.label;
+        button.addEventListener('click', () => {
+          handleAgentInput(suggestion.text);
+        });
+        agentOptions.appendChild(button);
+      });
+    };
+
+    const extractTags = (text) => {
+      const lowerText = text.toLowerCase();
+      return tagDictionary
+        .filter((entry) => entry.words.some((word) => lowerText.includes(word)))
+        .map((entry) => entry.tag);
+    };
+
+    const uniqueTags = (tags) => [...new Set(tags)];
+
+    const updateAgentBrief = (sourceText, looks, selectedLook = '') => {
+      const briefLines = [
+        'Hi, I used the Nail Agent and would like help with this nail direction:',
+        `Customer request: ${sourceText}`,
+        `Detected style tags: ${selectedTags.join(', ')}`,
+        selectedLook ? `Selected look: ${selectedLook}` : `Suggested looks: ${looks.map((look) => look.title).join(', ')}`
+      ];
+
+      agentWhatsapp.href = `https://wa.me/971508357337?text=${encodeURIComponent(briefLines.join('\n'))}`;
+    };
+
+    const showAgentTyping = () => {
+      const typing = document.createElement('div');
+      typing.className = 'agent-typing';
+      typing.textContent = 'Nail Agent is reading your style...';
+      agentThread.appendChild(typing);
+      return typing;
+    };
+
+    const getMissingPrompt = () => {
+      const hasOccasion = selectedTags.some((tag) => ['bridal', 'office', 'event', 'daily'].includes(tag));
+      const hasColor = selectedTags.some((tag) => ['pink', 'nude', 'white', 'gold'].includes(tag));
+      const hasLength = selectedTags.some((tag) => ['short', 'medium', 'long', 'oval', 'almond', 'square'].includes(tag));
+
+      if (!hasOccasion) {
+        return 'Nice. What is the occasion: work, wedding, dinner, holiday, or daily wear?';
+      }
+
+      if (!hasColor) {
+        return 'Good direction. What color mood do you prefer: nude, soft pink, white French, or gold detail?';
+      }
+
+      if (!hasLength) {
+        return 'Almost there. Do you prefer short, medium, or long nails? If you know the shape, tell me that too.';
+      }
+
+      return '';
+    };
+
+    const renderAgentResults = (sourceText) => {
+      const rankedLooks = nailLooks
+        .map((look) => ({
+          ...look,
+          score: look.tags.reduce((total, tag) => total + (selectedTags.includes(tag) ? 1 : 0), 0)
+        }))
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 4);
+
+      agentResults.innerHTML = '';
+      agentProgress.textContent = 'Recommendations ready';
+      addAgentMessage('I found a few looks that fit your direction. These are the best starting points from the curated gallery.');
+
+      rankedLooks.forEach((look) => {
+        const card = document.createElement('article');
+        card.className = 'agent-result-card';
+
+        const image = document.createElement('img');
+        image.src = look.image;
+        image.alt = look.title;
+
+        const content = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = look.title;
+        const reason = document.createElement('p');
+        reason.textContent = look.reason;
+        const tags = document.createElement('div');
+        tags.className = 'agent-result-tags';
+
+        look.tags.slice(0, 4).forEach((tag) => {
+          const tagItem = document.createElement('span');
+          tagItem.textContent = tag;
+          tags.appendChild(tagItem);
+        });
+
+        const pickButton = document.createElement('button');
+        pickButton.className = 'agent-pick';
+        pickButton.type = 'button';
+        pickButton.textContent = 'Use this look';
+        pickButton.addEventListener('click', () => {
+          updateAgentBrief(sourceText, rankedLooks, look.title);
+          addAgentMessage(`Let's use ${look.title}.`, 'user');
+          addAgentMessage('Lovely choice. I added that selected look to the WhatsApp brief.');
+          agentProgress.textContent = 'Brief ready';
+        });
+
+        content.append(title, reason, tags, pickButton);
+        card.append(image, content);
+        agentResults.appendChild(card);
+      });
+
+      updateAgentBrief(sourceText, rankedLooks);
+      agentResults.classList.add('is-visible');
+      agentBrief.classList.add('is-visible');
+    };
+
+    const handleAgentInput = (text) => {
+      const trimmedText = text.trim();
+      if (!trimmedText) return;
+
+      agentMessages.push(trimmedText);
+      addAgentMessage(trimmedText, 'user');
+      agentInput.value = '';
+      agentResults.classList.remove('is-visible');
+      agentBrief.classList.remove('is-visible');
+
+      const typing = showAgentTyping();
+      window.setTimeout(() => {
+        typing.remove();
+        selectedTags = uniqueTags([...selectedTags, ...extractTags(trimmedText)]);
+
+        const missingPrompt = getMissingPrompt();
+        if (missingPrompt && agentMessages.length < 3) {
+          agentProgress.textContent = 'Follow-up question';
+          addAgentMessage(missingPrompt);
+          return;
+        }
+
+        if (selectedTags.length === 0) {
+          selectedTags = ['soft', 'minimal', 'pink'];
+        }
+
+        renderAgentResults(agentMessages.join(' '));
+      }, 420);
+    };
+
+    const resetAgent = () => {
+      agentMessages = [];
+      selectedTags = [];
+      agentThread.innerHTML = '';
+      agentResults.innerHTML = '';
+      agentResults.classList.remove('is-visible');
+      agentBrief.classList.remove('is-visible');
+      agentWhatsapp.href = 'https://wa.me/971508357337';
+      agentProgress.textContent = 'Tell the agent what you want';
+      addAgentMessage('Tell me what kind of nails you want. You can describe the occasion, outfit, color mood, length, or the feeling you want.');
+      renderSuggestions();
+    };
+
+    agentForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      handleAgentInput(agentInput.value);
+    });
+
+    agentReset.addEventListener('click', resetAgent);
+    resetAgent();
 
     const lightbox = document.getElementById('gallery-lightbox');
     const lightboxImage = lightbox.querySelector('img');

@@ -680,6 +680,24 @@
     }
 
     @media (max-width: 720px) {
+      .container {
+        width: min(100% - 24px, var(--max));
+      }
+
+      .nav {
+        height: 66px;
+      }
+
+      .brand {
+        font-size: 1rem;
+        letter-spacing: 0;
+      }
+
+      .nav-actions .btn-primary {
+        min-height: 40px;
+        padding: 0 14px;
+      }
+
       .nav-links {
         display: none;
       }
@@ -689,7 +707,44 @@
       }
 
       .hero {
-        padding-top: 54px;
+        padding: 42px 0 48px;
+      }
+
+      .hero::before {
+        display: none;
+      }
+
+      .hero-grid {
+        gap: 28px;
+      }
+
+      .eyebrow {
+        margin-bottom: 16px;
+      }
+
+      .luxury-line {
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        font-size: clamp(2.55rem, 13vw, 3.35rem);
+        line-height: 1.06;
+        margin-bottom: 18px;
+      }
+
+      .hero-copy {
+        font-size: 1.02rem;
+        margin-bottom: 22px;
+      }
+
+      .hero-actions {
+        margin-bottom: 24px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
       }
 
       .mini-proof,
@@ -701,18 +756,39 @@
         grid-template-columns: 1fr;
       }
 
+      .mini-proof {
+        gap: 10px;
+      }
+
+      .proof-card {
+        padding: 0 0 0 12px;
+      }
+
+      .hero-card {
+        padding: 12px;
+        border-radius: 30px;
+      }
+
       .nail-visual {
-        min-height: 430px;
+        min-height: 330px;
+        border-radius: 22px;
       }
 
       .hero-image {
-        height: 430px;
+        height: 330px;
         object-position: 44% 50%;
       }
 
       .floating-note {
         align-items: flex-start;
         flex-direction: column;
+        border-radius: 20px;
+        padding: 16px;
+        gap: 14px;
+      }
+
+      .floating-note .btn {
+        width: 100%;
       }
 
       section {

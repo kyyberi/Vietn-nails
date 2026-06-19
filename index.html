@@ -653,6 +653,13 @@
       padding: 28px;
     }
 
+    .aftercare-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 24px;
+      align-items: end;
+    }
+
     .aftercare-panel .section-head {
       max-width: 840px;
       margin-bottom: 24px;
@@ -661,6 +668,84 @@
     .aftercare-panel h2 {
       font-size: clamp(1.7rem, 3vw, 2.65rem);
       letter-spacing: -0.04em;
+    }
+
+    .aftercare-panel .section-head p + p {
+      margin-top: 12px;
+    }
+
+    .aftercare-shelf {
+      position: relative;
+      min-height: 134px;
+      border-radius: 24px;
+      background: #f5ebe4;
+      border: 1px solid rgba(201, 163, 91, 0.25);
+      overflow: hidden;
+    }
+
+    .aftercare-shelf::before {
+      content: "";
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 28px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(201, 163, 91, 0.38);
+    }
+
+    .aftercare-shelf span {
+      position: absolute;
+      bottom: 34px;
+      display: block;
+      border: 1px solid rgba(143, 56, 74, 0.22);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 12px 26px rgba(80, 35, 45, 0.08);
+    }
+
+    .aftercare-shelf .tube {
+      left: 30px;
+      width: 34px;
+      height: 78px;
+      border-radius: 16px 16px 9px 9px;
+      transform: rotate(-9deg);
+    }
+
+    .aftercare-shelf .oil {
+      left: 76px;
+      width: 32px;
+      height: 88px;
+      border-radius: 12px;
+    }
+
+    .aftercare-shelf .oil::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: -14px;
+      width: 12px;
+      height: 16px;
+      border-radius: 8px 8px 3px 3px;
+      background: rgba(143, 56, 74, 0.24);
+    }
+
+    .aftercare-shelf .jar {
+      right: 34px;
+      width: 52px;
+      height: 46px;
+      border-radius: 15px 15px 18px 18px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .aftercare-shelf .jar::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      right: 7px;
+      top: -10px;
+      height: 13px;
+      border-radius: 999px;
+      background: rgba(143, 56, 74, 0.18);
     }
 
     .aftercare-grid {
@@ -691,6 +776,12 @@
 
     .aftercare-cta {
       margin-top: 18px;
+    }
+
+    .aftercare-note {
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-top: 8px;
     }
 
     .gallery-grid {
@@ -1568,6 +1659,15 @@
         width: 100%;
       }
 
+      .aftercare-head {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .aftercare-shelf {
+        min-height: 112px;
+      }
+
       .mini-proof,
       .cards,
       .aftercare-grid,
@@ -1888,29 +1988,38 @@
     <section class="aftercare" id="aftercare">
       <div class="container">
         <div class="aftercare-panel">
-          <div class="section-head">
-            <div class="section-label">Small Aftercare Shelf</div>
-            <h2>Simple care after your nail appointment</h2>
-            <p>Lotus Nails is a nail service first. We keep a small expert-picked shelf of Korean-inspired aftercare for hands, nails, and simple night care. Ask during your appointment.</p>
+          <div class="aftercare-head">
+            <div class="section-head">
+              <div class="section-label">Small Aftercare Shelf</div>
+              <h2>K-beauty, selected for Lotus clients</h2>
+              <p>Lotus Nails is a nail service first. For selected clients, we also keep a small shelf of Korean beauty aftercare products chosen to support polished hands, healthy-looking nails, and simple night care.</p>
+              <p>This is not a skincare shop. It is a small expert-picked add-on available during appointments.</p>
+            </div>
+            <div class="aftercare-shelf" aria-hidden="true">
+              <span class="tube"></span>
+              <span class="oil"></span>
+              <span class="jar"></span>
+            </div>
           </div>
 
           <div class="aftercare-grid">
             <div class="aftercare-card">
               <h3>Nail Aftercare</h3>
-              <p>Cuticle oil and hand cream to keep your manicure fresh.</p>
+              <p>Cuticle oil and hand cream to help keep your manicure fresh between visits.</p>
             </div>
             <div class="aftercare-card">
-              <h3>Hand Care</h3>
-              <p>Simple care for soft hands in Abu Dhabi's dry indoor air.</p>
+              <h3>Hand Beauty</h3>
+              <p>Soft hand care for Abu Dhabi’s dry indoor air, frequent washing, and daily sun exposure.</p>
             </div>
             <div class="aftercare-card">
-              <h3>Night Masks</h3>
-              <p>Korean-inspired overnight masks for customers who already use night care.</p>
+              <h3>Korean Night Masks</h3>
+              <p>Overnight masks for clients who already use K-beauty and want simple hydration-focused night care.</p>
             </div>
           </div>
 
           <div class="aftercare-cta">
-            <a class="btn btn-secondary" href="#booking">Ask during your appointment</a>
+            <a class="btn btn-secondary" href="#booking">Ask what is available during your appointment</a>
+            <p class="aftercare-note">Limited selection. Available for appointment clients only.</p>
           </div>
         </div>
       </div>
@@ -2120,7 +2229,7 @@
           </div>
         </div>
 
-        <p class="booking-note">Interested in aftercare products? Ask our expert during your appointment.</p>
+        <p class="booking-note">Interested in K-beauty aftercare? Ask what is available during your appointment. We keep a small selection for Lotus clients only.</p>
       </div>
     </section>
 

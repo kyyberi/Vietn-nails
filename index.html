@@ -370,11 +370,33 @@
       backdrop-filter: blur(10px);
     }
 
-    .hero-image {
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 520px;
       object-fit: cover;
       object-position: 50% 50%;
+      opacity: 0;
+      transform: scale(1.015);
+      transition: opacity 1.1s ease, transform 5.2s ease;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide {
+        transition: none;
+        transform: none;
+      }
     }
 
     .floating-note {
@@ -657,12 +679,13 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) 180px;
       gap: 24px;
-      align-items: end;
+      align-items: start;
+      margin-bottom: 24px;
     }
 
     .aftercare-panel .section-head {
       max-width: 840px;
-      margin-bottom: 24px;
+      margin-bottom: 0;
     }
 
     .aftercare-panel h2 {
@@ -1748,7 +1771,7 @@
         font-size: 0.78rem;
       }
 
-      .hero-image {
+      .hero-slide {
         height: 330px;
         object-position: 44% 50%;
       }
@@ -1886,7 +1909,13 @@
         <div class="hero-card" aria-label="Nail art visual">
           <div class="nail-visual">
             <div class="eyebrow">Ladies-only home nail service in Abu Dhabi</div>
-            <img class="hero-image" src="assets/hero-nails.png" alt="Pink floral nail art with gold accents and manicure samples" />
+            <div class="hero-slides" aria-label="Rotating Lotus Nails results">
+              <img class="hero-slide is-active" src="assets/hero-nails.png" alt="Pink floral nail art with gold accents and manicure samples" />
+              <img class="hero-slide" src="assets/gallery/nail1.png" alt="Soft pink floral manicure by Lotus Nails" />
+              <img class="hero-slide" src="assets/gallery/nail3.png" alt="Nude manicure with gold nail art detail" />
+              <img class="hero-slide" src="assets/gallery/nail4.png" alt="Soft bridal floral pink nail art" />
+              <img class="hero-slide" src="assets/gallery/nail8.png" alt="Signature lotus-inspired floral nail art set" />
+            </div>
           </div>
           <div class="floating-note">
             <div>
@@ -2326,6 +2355,19 @@
         menuToggle.setAttribute('aria-label', 'Open menu');
       });
     });
+
+    const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (heroSlides.length > 1 && !reduceMotion) {
+      let activeHeroSlide = 0;
+
+      setInterval(() => {
+        heroSlides[activeHeroSlide].classList.remove('is-active');
+        activeHeroSlide = (activeHeroSlide + 1) % heroSlides.length;
+        heroSlides[activeHeroSlide].classList.add('is-active');
+      }, 5000);
+    }
 
     const nailLooks = [
       {
